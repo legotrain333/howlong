@@ -39,7 +39,7 @@
       font-size: 14px;
       margin-top: 0;
     }
-    input {
+    input, textarea {
       width: 100%;
       padding: 10px;
       border-radius: 6px;
@@ -47,6 +47,10 @@
       background: #0b1220;
       color: #fff;
       box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 60px;
     }
     button {
       padding: 10px;
@@ -84,11 +88,20 @@
     <h3>Add a response time</h3>
 
     <form action="https://usebasin.com/f/f5e36c4c9351" method="POST">
-      <label for="minutes_to_reply">Minutes to reply:</label>
+      <label for="sent_date">Date you sent message:</label>
+      <input type="date" id="sent_date" name="sent_date" required>
+
+      <label for="response_date">Date she responded:</label>
+      <input type="date" id="response_date" name="response_date" required>
+
+      <label for="minutes_to_reply">Time to reply (minutes):</label>
       <input type="number" id="minutes_to_reply" name="minutes_to_reply" required>
 
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
+      <label for="thumbs_up">Reacted with 👍 (Yes/No):</label>
+      <input type="text" id="thumbs_up" name="thumbs_up" placeholder="Yes or No">
+
+      <label for="notes">Notes:</label>
+      <textarea id="notes" name="notes" placeholder="Add any notes..."></textarea>
 
       <button type="submit">Submit</button>
     </form>
@@ -99,7 +112,7 @@
     <h3>Add All Response Times Here</h3>
 
     <ul class="list">
-      <li class="item">More Data Comming Soon</li>
+      <li class="item">More Data Coming Soon</li>
       <!-- Add more manually here -->
     </ul>
   </div>
