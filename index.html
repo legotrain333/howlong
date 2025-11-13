@@ -28,7 +28,7 @@
       padding: 18px;
       border-radius: 12px;
       margin-bottom: 25px;
-      max-width: 500px;
+      max-width: 600px;
     }
     form {
       display: flex;
@@ -66,14 +66,27 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     .item {
       background: rgba(255,255,255,0.03);
       padding: 12px;
       border-radius: 8px;
-      margin-bottom: 8px;
       font-size: 14px;
       color: #cdd5df;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+    .item div {
+      overflow-wrap: anywhere;
+    }
+    .item-header {
+      font-weight: bold;
+      color: #fff;
     }
   </style>
 </head>
@@ -109,11 +122,23 @@
 
   <!-- ALL RESPONSE TIMES LIST -->
   <div class="panel">
-    <h3>Add All Response Times Here</h3>
+    <h3>All Response Times</h3>
 
     <ul class="list">
-      <li class="item">More Data Coming Soon</li>
-      <!-- Add more manually here -->
+      <li class="item">
+        <div class="item-header">Date Sent</div>
+        <div class="item-header">Date Responded</div>
+        <div class="item-header">Time to Reply</div>
+        <div class="item-header">Reacted with👍</div>
+        <div class="item-header">Notes</div>
+      </li>
+      <li class="item">
+        <div>11-10-2025</div>
+        <div>11-11-2025</div>
+        <div>15 hours 28 minutes</div>
+        <div>No</div>
+        <div>Nope</div>
+      </li>
     </ul>
   </div>
 
