@@ -12,6 +12,23 @@
         p { font-size: 18px; }
         .meme-reference { font-style: italic; margin-top: 25px; color: #aaa; }
         .footer { margin-top: 40px; font-size: 14px; }
+        .refresh-button {
+            /* We style the anchor tag to look like a button */
+            background-color: #FF4500; /* OrangeRed */
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            text-decoration: none; /* Removes underline from link */
+            display: inline-block; /* Allows padding to work correctly */
+        }
+        .refresh-button:hover {
+            background-color: #d9534f; /* Slightly darker red */
+        }
     </style>
 </head>
 <body>
@@ -20,12 +37,17 @@
         <h2>Error: Vibe Check Failed</h2>
         <p>The page you requested is currently unreachable because it's simply not passing the vibe check.</p>
         <p>Our servers are attempting to recalibrate the aura. This might take a moment.</p>
-        
+
+        <!-- Replace the '#' in href with your desired URL -->
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="refresh-button">
+            Click Me for a Vibe Check!
+        </a>
+
         <div class="meme-reference">
             <p>*(This isn't a real error code, we just thought it was a funny number.)*</p>
         </div>
 
-        <p class="footer">Please hit the refresh button and try again. May your aura be stronger next time.</p>
+        <p class="footer">May your aura be stronger next time.</p>
     </div>
 </body>
 </html>
