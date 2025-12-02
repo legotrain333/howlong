@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Count Up Timer</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #111;
+        color: #fff;
+        text-align: center;
+    }
+    .container {
+        padding: 20px;
+    }
+    h1 { 
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    #timer {
+        font-size: 1.8rem;
+        margin-top: 10px;
+        line-height: 1.8em;
+        white-space: pre-line;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Time Since October 29</h1>
+    <div id="timer">Loading...</div>
+</div>
+
+<script>
+    // Start date: October 29, current year, start of the day
+    const START_DATE = new Date(new Date().getFullYear(), 9, 29, 0, 0, 0);
+
+    function updateTimer() {
+        const now = new Date();
+        let diff = now - START_DATE;
+
+        let seconds = Math.floor(diff / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
+
+        hours %= 24;
+        minutes %= 60;
+        seconds %= 60;
+
+        document.getElementById("timer").innerText =
+            `${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
