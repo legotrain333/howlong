@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Count Up Timer</title>
+<title>Count Up Timers</title>
 <style>
     body {
         margin: 0;
@@ -20,31 +20,38 @@
         padding: 20px;
     }
     h1 { 
-        font-size: 2.5rem;
-        margin-bottom: 20px;
+        font-size: 2rem;
+        margin-bottom: 15px;
     }
-    #timer {
-        font-size: 1.8rem;
+    .timer {
+        font-size: 1.4rem;
         margin-top: 10px;
-        line-height: 1.8em;
+        line-height: 1.5em;
         white-space: pre-line;
+        margin-bottom: 40px;
     }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Time Since Last Texting Her</h1>
-    <div id="timer">Loading...</div>
+    <h1>Person A – Time Since Last Text</h1>
+    <div id="timerA" class="timer">Loading...</div>
+
+    <h1>Person B – Time Since Last Text</h1>
+    <div id="timerB" class="timer">Loading...</div>
 </div>
 
 <script>
-    // Start date: October 29, current year, start of the day
-    const START_DATE = new Date(2025, 10, 29, 3, 30, 0);
+    // Person A: 11/29/25 3:30 AM
+    const START_A = new Date(2025, 10, 29, 3, 30, 0);
 
-    function updateTimer() {
+    // Person B: 11/29/25 12:00 PM (noon)
+    const START_B = new Date(2025, 10, 29, 12, 0, 0);
+
+    function formatTimer(startDate) {
         const now = new Date();
-        let diff = now - START_DATE;
+        let diff = now - startDate;
 
         let seconds = Math.floor(diff / 1000);
         let minutes = Math.floor(seconds / 60);
@@ -55,12 +62,16 @@
         minutes %= 60;
         seconds %= 60;
 
-        document.getElementById("timer").innerText =
-            `${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds`;
+        return `${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds`;
     }
 
-    updateTimer();
-    setInterval(updateTimer, 1000);
+    function updateTimers() {
+        document.getElementById("timerA").innerText = formatTimer(START_A);
+        document.getElementById("timerB").innerText = formatTimer(START_B);
+    }
+
+    updateTimers();
+    setInterval(updateTimers, 1000);
 </script>
 
 </body>
