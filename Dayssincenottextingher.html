@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Count Up Timers</title>
+
 <style>
     body {
         margin: 0;
@@ -32,6 +33,7 @@
     }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -44,10 +46,10 @@
 
 <script>
     // Person A: 11/29/25 3:30 AM
-    const START_A = new Date(2025, 10, 29, 3, 30, 0); // November = 10
+    const START_A = new Date(2025, 10, 29, 3, 30, 0);
 
-    // Person B: 12/17/25 12:00 PM (noon)
-    const START_B = new Date(2025, 11, 17, 12, 0, 0); // December = 11
+    // Person B: 12/17/25 12:00 PM
+    const START_B = new Date(2025, 11, 17, 12, 0, 0);
 
     function formatTimer(startDate) {
         const now = new Date();
@@ -66,8 +68,11 @@
     }
 
     function updateTimers() {
-        document.getElementById("timerA").innerText = formatTimer(START_A);
-        document.getElementById("timerB").innerText = formatTimer(START_B);
+        document.getElementById("timerA").innerText =
+            formatTimer(START_A) + "\nPerson A today at 6:30 PM";
+
+        document.getElementById("timerB").innerText =
+            formatTimer(START_B);
     }
 
     updateTimers();
