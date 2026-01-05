@@ -45,36 +45,35 @@
 </div>
 
 <script>
-// Person A: December 30, 2025 at 8:15 PM
-const START_A = new Date(2025, 11, 30, 20, 15, 0); // December = 11
+// Person A: January 3, 2026 at 2:30 AM
+const START_A = new Date(2026, 0, 3, 2, 30, 0); // January = 0
 
+// Person B: December 17, 2025 at 12:00 PM
+const START_B = new Date(2025, 11, 17, 12, 0, 0);
 
-    // Person B: December 17, 2025 at 12:00 PM
-    const START_B = new Date(2025, 11, 17, 12, 0, 0);
+function formatTimer(startDate) {
+    const now = new Date();
+    let diff = Math.max(0, now - startDate);
 
-    function formatTimer(startDate) {
-        const now = new Date();
-        let diff = Math.max(0, now - startDate);
+    let seconds = Math.floor(diff / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    let days = Math.floor(hours / 24);
 
-        let seconds = Math.floor(diff / 1000);
-        let minutes = Math.floor(seconds / 60);
-        let hours = Math.floor(minutes / 60);
-        let days = Math.floor(hours / 24);
+    hours %= 24;
+    minutes %= 60;
+    seconds %= 60;
 
-        hours %= 24;
-        minutes %= 60;
-        seconds %= 60;
+    return `${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds`;
+}
 
-        return `${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds`;
-    }
+function updateTimers() {
+    document.getElementById("timerA").innerText = formatTimer(START_A);
+    document.getElementById("timerB").innerText = formatTimer(START_B);
+}
 
-    function updateTimers() {
-        document.getElementById("timerA").innerText = formatTimer(START_A);
-        document.getElementById("timerB").innerText = formatTimer(START_B);
-    }
-
-    updateTimers();
-    setInterval(updateTimers, 1000);
+updateTimers();
+setInterval(updateTimers, 1000);
 </script>
 
 </body>
